@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cards{
+    width: 500px;
+    height: 300px;
+    margin: 2rem;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    padding: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.2s ease-in;
+}.cards:hover{
+    transform: translateY(-10px);
+}
+.icon img{
+    width: 50px;
+}

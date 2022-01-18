@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/profile.css">
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="cards">
+            <h4>Google</h4>
+            <div class="inner-cards">
+                <div class="icon"><img src="<%= data.user.photos[0].value%> " alt=""></div>
+                <div class="name"><%= data.user.displayName %> </div>
+                <div class="email"><%= data.user.email %></div>
+                <% if(data.user.email_verified){ %> 
+                <div class="dname" style="color: green;"><%= data.user.email_verified %></div>
+                <% }else{ %> 
+                <div class="dname" style="color: red;"><%= data.user.email_verified %></div>
+                <% } %> 
+            </div>
+        </div>
+        <div class="cards">
+            <div class="icon"></div>
+            <div class="name"></div>
+            <div class="email"></div>
+            <div class="dname"></div>
+        </div>
+        <% if(data){ %>
+                <div class="LogutButton" onclick="logOut()">logout</div>
+        <% } %>
+                 
+    </div>
+    <script>
+        function logOut(){
+            window.open('http://localhost:3000/auth/logout', '_self');
+        }
+    </script>
+
+    
+</body>
+</html>

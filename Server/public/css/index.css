@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cards{
+    width: 400px;
+    height: 300px;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    padding: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.google{
+    width: 50%;
+    padding: 1rem;
+    background-color: blue;
+    margin: 1rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.google:nth-child(1){
+    background-color: red;
+}
+.google:nth-child(2){
+    background-color: rgb(41, 41, 41);
+    color: green;
+}

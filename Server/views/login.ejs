@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="cards">
+            <div class="google" onclick="Google()">Google</div>
+            <div class="google">Github</div>
+            <div class="google">Facebooks</div>
+        </div>
+    </div>
+    <script>
+        function Google(){
+            window.open('http://localhost:3000/auth/google', '_self');
+        }
+    </script>
+</body>
+</html>
