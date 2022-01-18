@@ -2,11 +2,11 @@ const express = require('express')
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const cors = require('cors')
+const passportSetup = require("./passport");
 const authroutes = require('./routes/auth')
+const projectsRoutes = require('./routes/projectsRoutes')
 const app = express();
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
-const passportSessionSetp = require('./passport')
-
+require('dotenv').config()
 const PORT = 3000 || process.env.PORT;
 
 
@@ -22,7 +22,7 @@ app.use(cookieSession(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(express.json())
 app.use(cors({
     origin: 'http://localhost:3000',
     methods: 'GET, POST, PUT, DELETE',
@@ -33,6 +33,7 @@ app.use(cors({
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
 app.use('/auth', authroutes);
+app.use('/project', projectsRoutes);
 
 
 app.get('/', (req, res)=>{

@@ -1,8 +1,18 @@
-const GoogleStrategy = require('passport-google-oauth2').Strategy;
+//Google passport
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
+//github passport
+const GithubStrategy = require("passport-github2").Strategy;
+
 const passport = require('passport')
 
+//Google secret keys
 const GOOGLE_CLIENT_ID = "777782408891-477dlp3oih68ga0al1cm1akpmfd5290l.apps.googleusercontent.com";
 const GOOGLE_CLIENT_SECRET = "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";
+
+
+//Github Secrete keys
+const GITHUB_CLIENT_ID = "Iv1.012a01e0334acdf1"
+const GITHUB_CLIENT_SECRET = "7871b2926f403f32e1b07f44a7f80a385c8cc890";
 
 
 passport.use(new GoogleStrategy({
@@ -14,11 +24,17 @@ passport.use(new GoogleStrategy({
   function(request, accessToken, refreshToken, profile, done) {
         done(null, profile);
         // mongodb
-        const user = {
-            username: profile.displayName,
-            avatar: profile.photo[0],
-            email: profile.email
-        }
+  }
+));
+
+
+passport.use(new GithubStrategy({
+    clientID: GITHUB_CLIENT_ID,
+    clientSecret: GITHUB_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/github/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    done(null, profile);
   }
 ));
 
