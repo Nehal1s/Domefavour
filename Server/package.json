@@ -27,7 +27,8 @@
     "passport-github2": "^0.1.12",
     "passport-google-oauth2": "^0.2.0",
     "passport-google-oauth20": "^2.0.0",
-    "querystring": "^0.2.1"
+    "querystring": "^0.2.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "dotenv": "^12.0.4"

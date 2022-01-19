@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const passport = require('passport');
 const mongoose = require('mongoose');
-const Devs = require('../models/Devs')
+const Devs = require('../models/Devs');
+const { json } = require('express');
+const {v4 : uuid} = require('uuid');
 
 const CLIENT_URL = 'http://localhost:3000/profile'
 const LOGIN_URL = 'http://localhost:3000/login'
@@ -31,28 +33,86 @@ router.get('/login/failed', (req, res)=>{
 })
 
 
-//todo-> successful of  redirected //todo
+//todo-> searching dev by id
+router.get('/dev/:id', (req, res)=>{
+    let str = uuid().split('-')[0]
+    try{
+        res.status(200).json({message: str});
+    }catch(err){
+        res.status(500).json({message: err.message});
+    }
+})
+
+
+//todo-> getting all dev (development only)
+router.get('/all', async (req, res)=>{
+    try{
+        let devs = await Devs.find();
+        res.status(200).json(devs)
+    }catch(err){
+        res.status(500).json({message: err.message});
+    }
+})
+
+//todo-> searching a category
+router.get('/category/:category', async (req, res)=>{
+    try {
+        let devs = await Devs.find({category: req.params.category})
+        if(devs){
+            res.status(200).json(devs)
+        }else{
+            res.status(404).json({message: "Dev of category not found!"});
+        }
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    }
+})
+//todo-> deleting a dev
+router.delete('/dev/:id', getDevs, async (req, res)=>{
+    try{
+        await res.dev.remove()
+        res.status(200).json({message: "Dev has been removed Successfully!"});
+    }catch(err){
+        res.status(500).json({message: err.message});
+    }
+
+})
+
+
+//todo-> successful of  redirected
 router.get('/login/success', async (req, res)=>{
-    console.log(req.user);
     if(req.user){
         const dev = new Devs({
             name: req.user.displayName,
             pfp: req.user.photos[0].value,
+            email: req.user._json.email,
             status: {
                 project_id: "",
                 onproject: false
-            }
+            },
+            _id: uuid().split('-')[0],
+            category: ['unreal', 'blender', 'unity', 'shark']
         })
         try{
-            const newDev = await dev.save()
-            res.render('profile', {data:{
-                success: true,
-                message: 'successful',
-                user: req.user,
-                }});
+            let isDev =  await Devs.findOne(dev)
+            if(isDev === null) {
+                const newDev = await dev.save()
+                console.log(newDev);
+                if(newDev) res.status(200).json(newDev);
+                else res.status(501).json({message: "Something went wrong !"});
+            }
+            else{
+                res.status(404).json({message: "Cannot add as the user already exists!"});
+            }
+            
+            // res.render('profile', {data:{
+            //     success: true,
+            //     message: 'successful',
+            //     user: req.user,
+            //     }});
             // res.status(201).json(newDev);
         }catch(err){
-            res.send(err.message);
+            res.status(500).json({message: err.message});
             // res.status(400).json({message: err.message});
         }
     }
@@ -82,17 +142,18 @@ router.get('/github/callback', passport.authenticate('github', {
 }))
 
 
-async function getDev(req, res, next){
-    let developer;
+async function getDevs(req, res, next){
+    console.log(req.params.id);
+    let dev;
     try{
-        developer = await Devs.findById(req.params.id)
-        if(developer == null){
+        dev = await Devs.findById(req.params.id)
+        if(dev == null){
             return res.status(404).json({message: "Cannot find Project!"});
         }
     }catch(err){
         return res.status(500).json({message: err.message});
     }
-    res.developer = developer
+    res.dev = dev
     next();
 }
 

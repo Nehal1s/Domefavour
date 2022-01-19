@@ -1,7 +1,19 @@
 const mongoose = require('mongoose');
 
 const Devs = new mongoose.Schema({
+    _id:{
+        type: String,
+        required: true
+    },
+    category:{
+        type: Array,
+        required: false
+    },
     name: {
+        type: String,
+        required: true
+    },
+    email:{
         type: String,
         required: true
     },

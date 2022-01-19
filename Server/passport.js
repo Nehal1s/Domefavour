@@ -6,8 +6,8 @@ const GithubStrategy = require("passport-github2").Strategy;
 const passport = require('passport')
 
 //Google secret keys
-const GOOGLE_CLIENT_ID = "777782408891-477dlp3oih68ga0al1cm1akpmfd5290l.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "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";
+const GOOGLE_CLIENT_ID = "777782408891-sb2lbjurhaoam6flkc0qlatt14l9gfno.apps.googleusercontent.com";
+const GOOGLE_CLIENT_SECRET = "MdqgErLdxxMAshFNPFbOUIee";
 
 
 //Github Secrete keys

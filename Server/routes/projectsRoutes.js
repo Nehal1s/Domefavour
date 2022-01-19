@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { rangeRight } = require('lodash');
 const mongoose = require('mongoose');
 const uri = 'mongodb+srv://kaneki:chxllzGhGCWO5teH@sauce.scsrk.mongodb.net/Domeafavour?retryWrites=true&w=majority'
 const Project = require('../models/projects');
@@ -23,26 +24,38 @@ db.once('open', ()=>{ console.log('Connected to database')})
 //MongoDb APIs
 //todo-> getting all
 router.get('/', async (req, res)=>{
+    console.log("sadsad");
     try{
         const projects_defaults = await Project.find()
-        res.send(projects_defaults);
-        projects_defaults.forEach(ele =>{})
+        res.status(200).json(projects_defaults);
     } catch(err){
         res.status(500).json({ message: err.message});
     }
 })
 
 
+router.get('/category/:category', async (req, res)=>{
+    try{
+        let fCat = await Project.find({category: req.params.category});
+        if(fCat){
+            res.status(200).json(fCat)
+        }else{
+            res.status(404).json({message: "not found!"})
+        }
+    }catch{
+        res.status(500).json({message: "server error"})
+    }
+
+
+})
 
 
 
 //todo-> getting one
 router.get('/:id', getProjects, (req, res)=>{
-    res.send(res.project.name);
+    res.send(res.project);
 
 })
-
-
 
 
 
@@ -66,7 +79,23 @@ router.post('/', async (req, res)=>{
 })
 
 
-
+router.get('/category', (req, res)=>{
+    console.log("wtf");
+//     let fCategory = {
+//         category: req.body.category
+//     }
+//    try{
+//     let State = await Project.find(fCategory)
+//     if(State){
+//         res.status(200).json(State);
+//     }
+//     else{
+//         res.send(404).json({message: "No Porject on this category found!"});
+//     }
+//    }catch(err){
+//        res.send(500).json({message: err.message})
+//    }
+})
 
 
 //todo-> uppdating one
