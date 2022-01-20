@@ -17,7 +17,7 @@ const db = mongoose.connection;
 
 //todo-> validations
 db.on('error', (err)=>{ console.error(err)})
-db.once('open', ()=>{ console.log('Connected to database in auths')})
+db.once('open', ()=>{ console.log('Auth and Devs Connected')})
 
 
 

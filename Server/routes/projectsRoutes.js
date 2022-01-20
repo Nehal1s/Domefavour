@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { rangeRight } = require('lodash');
+const { rangeRight, forEach } = require('lodash');
 const mongoose = require('mongoose');
 const uri = 'mongodb+srv://kaneki:chxllzGhGCWO5teH@sauce.scsrk.mongodb.net/Domeafavour?retryWrites=true&w=majority'
 const Project = require('../models/projects');
@@ -16,7 +16,7 @@ const db = mongoose.connection;
 
 //todo-> validations
 db.on('error', (err)=>{ console.error(err)})
-db.once('open', ()=>{ console.log('Connected to database')})
+db.once('open', ()=>{ console.log('Project Connected')})
 
 
 
@@ -27,6 +27,21 @@ router.get('/', async (req, res)=>{
     console.log("sadsad");
     try{
         const projects_defaults = await Project.find()
+
+        //todo:: this for removing project in one go { do not use } 
+        // let i = 0;
+        // projects_defaults.forEach(async element => {
+        //     if(i>200) return false
+        //     i++;
+        //     let pro = await Project.findById(element._id)
+        //     try{
+        //         await pro.remove();
+        //         console.log(`${i} removed suceesfully`);
+        //     }catch(err){
+        //         console.log(err.message);
+        //     }
+        // });
+
         res.status(200).json(projects_defaults);
     } catch(err){
         res.status(500).json({ message: err.message});

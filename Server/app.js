@@ -2,10 +2,9 @@ const express = require('express')
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const cors = require('cors')
-const passportSetup = require("./passport");
-const authroutes = require('./routes/auth')
+const authRoutes = require('./routes/auth')
 const projectsRoutes = require('./routes/projectsRoutes');
-const { post } = require('./routes/auth');
+const eventFeeds = require('./routes/eventsFeeds')
 const app = express();
 require('dotenv').config()
 const PORT = process.env.PORT || 3000;
@@ -33,14 +32,15 @@ app.use(cors({
 //Express use
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
-app.use('/auth', authroutes);
+app.use('/auth', authRoutes);
 app.use('/project', projectsRoutes);
+app.use('/event', eventFeeds)
 
 
 app.get('/', (req, res)=>{
     res.status(200).json({
         Title: "This is a documentation for sharma!",
-        event_feeds: {
+        porject_feeds: {
             title: "they're still under development but you can access them on route",
             for_Get_all: {
                 Get: "/project",
@@ -48,7 +48,6 @@ app.get('/', (req, res)=>{
                 Response: [
                     {
                         "_id": "Mongo_id",
-                        "id": "Custom_id",
                         "name": "example",
                         "owner": "owner_id",
                         "team": [
@@ -68,7 +67,6 @@ app.get('/', (req, res)=>{
                 resType: "json",
                 Response: {
                             "_id": "Mongo_id",
-                            "id": "Custom_id",
                             "name": "example",
                             "owner": "owner_id",
                             "team": [
@@ -88,7 +86,6 @@ app.get('/', (req, res)=>{
                 Response: [
                     {
                         "_id": "Mongo_id",
-                        "id": "Custom_id",
                         "name": "example",
                         "owner": "owner_id",
                         "team": [
@@ -115,7 +112,6 @@ app.get('/', (req, res)=>{
                 },
                 Response: {
                         "_id": "Mongo_id",
-                        "id": "Custom_id",
                         "name": "example",
                         "owner": "owner_id",
                         "team": [
@@ -147,7 +143,6 @@ app.get('/', (req, res)=>{
                 },
                 Response: {
                         "_id": "Mongo_id",
-                        "id": "Custom_id",
                         "name": "example",
                         status: {
                             onproject: "true/false",
@@ -161,6 +156,44 @@ app.get('/', (req, res)=>{
                         "__v": 0
                     }
             },
+        },
+        event_feeds:{
+            title: "they're still under development but you can access them on route",
+            get_all:{
+                get: "/event",
+                resType: "jsonArray",
+                Response: [{
+                        body:{
+                            description: "string",
+                            tags: ["categories"],
+                            scr: "imageUrl"
+                        },
+                        _id: "string",
+                        title: "string",
+                        owner: "Owner_id",
+                        project_id: "associated project's id",
+                        dob: "date of creation",
+                }]
+            },
+            get_all_for_dev:{
+                get: "/event",
+                resType: "jsonArray",
+                requested: {
+                    id: "dev id"
+                },
+                Response: [{
+                        body:{
+                            description: "string",
+                            tags: ["categories"],
+                            scr: "imageUrl"
+                        },
+                        _id: "string",
+                        title: "string",
+                        owner: "Owner_id",
+                        project_id: "associated project's id",
+                        dob: "date of creation",
+                }]
+            }
         },
         Profile: {
             title: "data can be available on /profile 'Content-type: application/json'",
