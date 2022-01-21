@@ -7,7 +7,7 @@ const app = express();
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passportSessionSetp = require('./passport')
 
-const PORT = 3000 || process.env.PORT;
+const PORT = 3030 || process.env.PORT;
 
 
 
@@ -35,17 +35,17 @@ app.use(express.static('public'))
 app.use('/auth', authroutes);
 
 
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     res.render('login')
 })
 
-app.get('/profile', (req, res)=>{
+app.get('/profile', (req, res) => {
     console.log(`Data be like:=> ${req.body}`);
     res.render('profile')
 })
-app.get('/login', (req, res)=>{
+app.get('/login', (req, res) => {
     res.render('login');
 })
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`running server on ${PORT}`);
 })
