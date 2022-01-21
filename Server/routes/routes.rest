@@ -1,0 +1,48 @@
+PATCH  http://localhost:3000/project/asdadfff2345235
+
+###
+GET http://localhost:3000/project/61e713672e491ae3fac89f2b
+
+###
+GET http://localhost:3000/project
+###
+GET http://localhost:3000/project/category/unreal Engine based
+
+###
+DELETE http://localhost:3000/project/61e712432bc22642b4319301
+
+
+###
+
+POST http://localhost:3000/project/
+Content-Type: application/json
+
+{
+    "id": "352454687nvsd",
+    "name": "ken",
+    "owner": "23423412",
+    "makersid": "Akatsuki",
+    "category": "134124"
+}
+
+###
+GET http://localhost:3000/auth/login/success
+Content-Type: application/json
+
+{
+    "displayName": "ken kaneki",
+    "photos": [{
+        "value": "asdasdkhjsdhaksd"
+    }]
+}
+
+###
+GET http://localhost:3000/auth/all
+
+
+###
+DELETE http://localhost:3000/auth/dev/bc0f36d7
+
+###
+GET http://localhost:3000/auth/category/unreal
+

@@ -15,16 +15,24 @@
     "cookie-parser": "^1.4.6",
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^12.0.4",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "google-auth-library": "^7.11.0",
     "lodash": "^4.17.21",
+    "mongoose": "^6.1.7",
+    "package.json": "^2.0.1",
+    "pandas": "0.0.3",
     "passport": "^0.5.2",
     "passport-github": "^1.1.0",
+    "passport-github2": "^0.1.12",
     "passport-google-oauth2": "^0.2.0",
     "passport-google-oauth20": "^2.0.0",
-    "querystring": "^0.2.1"
+    "querystring": "^0.2.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.3",
+    "dotenv": "^12.0.4"
   }
 }
