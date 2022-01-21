@@ -6,15 +6,8 @@ const authRoutes = require('./routes/auth')
 const projectsRoutes = require('./routes/projectsRoutes');
 const eventFeeds = require('./routes/eventsFeeds')
 const app = express();
-<<<<<<< HEAD
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
-const passportSessionSetp = require('./passport')
-
-const PORT = 3030 || process.env.PORT;
-=======
 require('dotenv').config()
 const PORT = process.env.PORT || 3000;
->>>>>>> 1319b0795616f047c703e5e70d4f3d0cab708c5a
 
 
 
@@ -44,11 +37,7 @@ app.use('/project', projectsRoutes);
 app.use('/event', eventFeeds)
 
 
-<<<<<<< HEAD
 app.get('/', (req, res) => {
-    res.render('login')
-=======
-app.get('/', (req, res)=>{
     res.status(200).json({
         Title: "This is a documentation for sharma!",
         porject_feeds: {
@@ -62,33 +51,33 @@ app.get('/', (req, res)=>{
                         "name": "example",
                         "owner": "owner_id",
                         "team": [
-                          "Project_Name"
+                            "Project_Name"
                         ],
                         "category": [
-                          "Prefrences or categoried (if any)"
+                            "Prefrences or categoried (if any)"
                         ],
                         "dob": "date of craetion",
                         "__v": 0
-                      }
-                    ],
+                    }
+                ],
 
             },
-            for_Get_one:{
+            for_Get_one: {
                 Get: "/project/:id",
                 resType: "json",
                 Response: {
-                            "_id": "Mongo_id",
-                            "name": "example",
-                            "owner": "owner_id",
-                            "team": [
-                            "Project_Name"
-                            ],
-                            "category": [
-                            "Prefrences or categoried (if any)"
-                            ],
-                            "dob": "date of craetion",
-                            "__v": 0
-                      },
+                    "_id": "Mongo_id",
+                    "name": "example",
+                    "owner": "owner_id",
+                    "team": [
+                        "Project_Name"
+                    ],
+                    "category": [
+                        "Prefrences or categoried (if any)"
+                    ],
+                    "dob": "date of craetion",
+                    "__v": 0
+                },
 
             },
             for_Get_category: {
@@ -100,15 +89,15 @@ app.get('/', (req, res)=>{
                         "name": "example",
                         "owner": "owner_id",
                         "team": [
-                          "Project_Name"
+                            "Project_Name"
                         ],
                         "category": [
-                          "Prefrences or categoried (if any)"
+                            "Prefrences or categoried (if any)"
                         ],
                         "dob": "date of craetion",
                         "__v": 0
-                      }
-                    ],
+                    }
+                ],
 
             },
             for_delete_one: "/project/:id",
@@ -116,26 +105,26 @@ app.get('/', (req, res)=>{
                 Post: "/project/",
                 resType: "json",
                 request: {
-                    "name":"Project_name",
+                    "name": "Project_name",
                     owner: "owner _name",
-                    category:["category or prefrences"]
+                    category: ["category or prefrences"]
 
                 },
                 Response: {
-                        "_id": "Mongo_id",
-                        "name": "example",
-                        "owner": "owner_id",
-                        "team": [
-                          "Project_Name"
-                        ],
-                        "category": [
-                          "Prefrences or categoried (if any)"
-                        ],
-                        "dob": "date of creation",
-                        "__v": 0
-                    }
+                    "_id": "Mongo_id",
+                    "name": "example",
+                    "owner": "owner_id",
+                    "team": [
+                        "Project_Name"
+                    ],
+                    "category": [
+                        "Prefrences or categoried (if any)"
+                    ],
+                    "dob": "date of creation",
+                    "__v": 0
+                }
             },
-            
+
         },
         user_feeds: {
             title: "they're still under development but you can access them on route",
@@ -143,66 +132,66 @@ app.get('/', (req, res)=>{
             for_Get_one: "/auth/dev/:id",
             for_Get_category: "/auth/category/:id_Category",
             for_delete_one: "/auth/:id",
-            for_Creating :{
+            for_Creating: {
                 Post: "/auth/dev",
                 resType: "json",
                 request: {
-                    "name":"Developer name",
-                    prefrences:["category or prefrences"],
+                    "name": "Developer name",
+                    prefrences: ["category or prefrences"],
                     pfp: "a string link to a image or src"
 
                 },
                 Response: {
-                        "_id": "Mongo_id",
-                        "name": "example",
-                        status: {
-                            onproject: "true/false",
-                            extra: "ofcourse if you want"
-                        },
-                        pfp: "a string link to a image or src",
-                        prefrences: [
-                          "Prefrences or categoried (if any)"
-                        ],
-                        "dob": "date of creation",
-                        "__v": 0
-                    }
+                    "_id": "Mongo_id",
+                    "name": "example",
+                    status: {
+                        onproject: "true/false",
+                        extra: "ofcourse if you want"
+                    },
+                    pfp: "a string link to a image or src",
+                    prefrences: [
+                        "Prefrences or categoried (if any)"
+                    ],
+                    "dob": "date of creation",
+                    "__v": 0
+                }
             },
         },
-        event_feeds:{
+        event_feeds: {
             title: "they're still under development but you can access them on route",
-            get_all:{
+            get_all: {
                 get: "/event",
                 resType: "jsonArray",
                 Response: [{
-                        body:{
-                            description: "string",
-                            tags: ["categories"],
-                            scr: "imageUrl"
-                        },
-                        _id: "string",
-                        title: "string",
-                        owner: "Owner_id",
-                        project_id: "associated project's id",
-                        dob: "date of creation",
+                    body: {
+                        description: "string",
+                        tags: ["categories"],
+                        scr: "imageUrl"
+                    },
+                    _id: "string",
+                    title: "string",
+                    owner: "Owner_id",
+                    project_id: "associated project's id",
+                    dob: "date of creation",
                 }]
             },
-            get_all_for_dev:{
+            get_all_for_dev: {
                 get: "/event",
                 resType: "jsonArray",
                 requested: {
                     id: "dev id"
                 },
                 Response: [{
-                        body:{
-                            description: "string",
-                            tags: ["categories"],
-                            scr: "imageUrl"
-                        },
-                        _id: "string",
-                        title: "string",
-                        owner: "Owner_id",
-                        project_id: "associated project's id",
-                        dob: "date of creation",
+                    body: {
+                        description: "string",
+                        tags: ["categories"],
+                        scr: "imageUrl"
+                    },
+                    _id: "string",
+                    title: "string",
+                    owner: "Owner_id",
+                    project_id: "associated project's id",
+                    dob: "date of creation",
                 }]
             }
         },
@@ -212,7 +201,6 @@ app.get('/', (req, res)=>{
 
         }
     })
->>>>>>> 1319b0795616f047c703e5e70d4f3d0cab708c5a
 })
 
 app.get('/profile', (req, res) => {
