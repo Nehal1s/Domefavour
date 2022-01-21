@@ -11,13 +11,16 @@
     <div class="container">
         <div class="cards">
             <div class="google" onclick="Google()">Google</div>
-            <div class="google">Github</div>
+            <div class="google" onclick="Github()">Github</div>
             <div class="google">Facebooks</div>
         </div>
     </div>
     <script>
         function Google(){
             window.open('http://localhost:3000/auth/google', '_self');
+        }
+        function Github(){
+            window.open('http://localhost:3000/auth/github', '_self');
         }
     </script>
 </body>

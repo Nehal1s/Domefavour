@@ -14,11 +14,11 @@
             <div class="inner-cards">
                 <div class="icon"><img src="<%= data.user.photos[0].value%> " alt=""></div>
                 <div class="name"><%= data.user.displayName %> </div>
-                <div class="email"><%= data.user.email %></div>
-                <% if(data.user.email_verified){ %> 
-                <div class="dname" style="color: green;"><%= data.user.email_verified %></div>
+                <div class="email"><%= data.user._json.email %></div>
+                <% if(data.user._json.email_verified){ %> 
+                <div class="dname" style="color: green;"><%= data.user._json.email_verified %></div>
                 <% }else{ %> 
-                <div class="dname" style="color: red;"><%= data.user.email_verified %></div>
+                <div class="dname" style="color: red;"><%= data.user._json.email_verified %></div>
                 <% } %> 
             </div>
         </div>
