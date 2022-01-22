@@ -17,6 +17,7 @@ Link to website `https://shivanshsharma13.github.io/domefavour/`
 
 An in-depth overview of the API methods is available in the documentation. The API covers the following modules:
 
+## Project Routes
 | Route                        | Method                         | Working                                | Requested data               | Response                  |
 | ---------------------------- | ------------------------------ | -------------------------------------- | -----------------------------|-------------------------- |
 | /project                     |              `GET`             | For getting all Porjects               | None                         | Project object            |
