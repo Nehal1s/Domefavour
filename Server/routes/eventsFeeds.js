@@ -40,31 +40,69 @@ router.get('/personal/:id', async (req, res)=>{
 //todo -> { getting all}
 router.get('/', async (req, res)=>{
     try {
-        let events = await Events.find()
+        let events = await Events.find().limit(90);
+        res.status(200).json(events);
 
     } catch (err) {
-        
+        res.status(500).json({message: err.message})
     }
 })
 //todo -> { get by id}
-router.get('/:id', (req, res)=>{
+router.get('/:id', getEvent, async (req, res)=>{
+   if(res.event){
+       res.status(200).json(res.event);
+   }else{
+       res.status(404).json({message: "Post not found!"});
+   }
 
 })
 //todo -> { get and delete}
-router.delete('/:id', (req, res)=>{
+router.delete('/:id', getEvent, (req, res)=>{
+    if(res.event){
+        res.event.remove()
+    }else{
+        res.status.json({message: "Failed to delete the psost may be you're a doppelgengor or whatever!"});
+    }
 
 })
 //todo -> { get and update}
-router.patch('/:id', (req, res)=>{
-
+router.patch('/:id', getEvent, (req, res)=>{
+    res.status(200).json(res.event);
 })
 //todo -> { create and post}
-router.post('/', (req, res)=>{
-
+router.post('/', async (req, res)=>{
+    
+    let event = new Events({
+        _id: uuid().split('-')[0],
+        title: req.body.title,
+        owner: req.body.owner,
+        body: {
+            description: req.body.desc,
+            tags: req.body.tags,
+            src: req.body.src
+        },
+        project_id: req.body.project_id
+    })
 })
 //todo -> { request to be in }
 router.get('/request', (req, res)=>{
-
+    
 })
+
+async function getEvent(req, res, next){
+    console.log(req.params.id);
+    let event;
+    try{
+        event = await Events.findById(req.params.id)
+        if(event == null){
+            return res.status(404).json({message: "Cannot find Project!"});
+        }
+    }catch(err){
+        return res.status(500).json({message: err.message});
+    }
+    res.event = event
+    next();
+}
+
 
 module.exports = router

@@ -2,8 +2,9 @@ const router = require('express').Router();
 const passport = require('passport');
 const mongoose = require('mongoose');
 const Devs = require('../models/Devs');
-const { json } = require('express');
+const { json, application } = require('express');
 const {v4 : uuid} = require('uuid');
+const cors = require('cors')
 
 const CLIENT_URL = 'http://localhost:3000/profile'
 const LOGIN_URL = 'http://localhost:3000/login'
@@ -18,6 +19,10 @@ const db = mongoose.connection;
 //todo-> validations
 db.on('error', (err)=>{ console.error(err)})
 db.once('open', ()=>{ console.log('Auth and Devs Connected')})
+
+
+//middleware for cross origin fetch requests::
+app.use(cors())
 
 
 
@@ -91,7 +96,8 @@ router.get('/login/success', async (req, res)=>{
                 onproject: false
             },
             _id: uuid().split('-')[0],
-            category: ['unreal', 'blender', 'unity', 'shark']
+            category: ['unreal', 'blender', 'unity', 'shark'],
+            projects: []
         })
         try{
             let isDev =  await Devs.findOne(dev)
