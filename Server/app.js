@@ -7,7 +7,7 @@ const projectsRoutes = require('./routes/projectsRoutes');
 const eventFeeds = require('./routes/eventsFeeds')
 const app = express();
 require('dotenv').config()
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3300;
 
 
 
@@ -22,9 +22,9 @@ app.use(cookieSession(
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.json())
+app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3300',
     methods: 'GET, POST, PUT, DELETE',
     credientials: true
 }))

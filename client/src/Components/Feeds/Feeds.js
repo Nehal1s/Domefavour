@@ -18,7 +18,7 @@ function Feeds() {
 
     const get_projects = async () => {
 
-        await fetch("https://domefavor.herokuapp.com/project")
+        await fetch("https://localhost:3300/project")
             .then((response) => response.json())
             .then((json) => {
                 // console.log(json[0].name);

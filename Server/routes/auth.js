@@ -4,10 +4,9 @@ const mongoose = require('mongoose');
 const Devs = require('../models/Devs');
 const { json, application } = require('express');
 const {v4 : uuid} = require('uuid');
-const cors = require('cors')
 
-const CLIENT_URL = 'http://localhost:3000/profile'
-const LOGIN_URL = 'http://localhost:3000/login'
+const CLIENT_URL = 'http://localhost:3300/profile'
+const LOGIN_URL = 'http://localhost:3300/login'
 const pass = 'chxllzGhGCWO5teH';
 const uri = 'mongodb+srv://kaneki:chxllzGhGCWO5teH@sauce.scsrk.mongodb.net/Domeafavour?retryWrites=true&w=majority'
 
@@ -22,7 +21,6 @@ db.once('open', ()=>{ console.log('Auth and Devs Connected')})
 
 
 //middleware for cross origin fetch requests::
-app.use(cors())
 
 
 
@@ -134,7 +132,7 @@ router.get('/logout', (req, res)=>{
 router.get('/google', passport.authenticate('google', {scope: ['profile', 'email'] }));
 
 router.get('/google/callback', passport.authenticate('google', {
-    successRedirect: 'http://localhost:3000/auth/login/success',
+    successRedirect: 'http://localhost:3300/auth/login/success',
     failureRedirect: '/login/failed'
 }))
 
@@ -143,7 +141,7 @@ router.get('/google/callback', passport.authenticate('google', {
 router.get('/github', passport.authenticate('github', {scope: ['profile'] }));
 
 router.get('/github/callback', passport.authenticate('github', {
-    successRedirect: 'http://localhost:3000/auth/login/success',
+    successRedirect: 'http://localhost:3300/auth/login/success',
     failureRedirect: '/login/failed'
 }))
 
