@@ -1,3 +1,4 @@
+const { GoogleAuth } = require('google-auth-library');
 const mongoose = require('mongoose');
 
 const Events = new mongoose.Schema({
@@ -12,6 +13,24 @@ const Events = new mongoose.Schema({
     owner: {
         type: String,
         required: true
+    },
+    reputation_required: {
+        type: String,
+        required: true
+    },
+    bids:{
+        type: String,
+        required: true
+    },
+    location:{
+        type: String,
+        required: true,
+        default: "India"
+    },
+    likes: {
+        type: String,
+        required: false,
+        default: "0"
     },
     body:{
         description:{

@@ -23,11 +23,7 @@ app.use(cookieSession(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
-app.use(cors({
-    origin: 'http://localhost:3300',
-    methods: 'GET, POST, PUT, DELETE',
-    credientials: true
-}))
+app.use(cors())
 
 //Express use
 app.set('view engine', 'ejs');

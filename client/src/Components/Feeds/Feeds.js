@@ -18,7 +18,7 @@ function Feeds() {
 
     const get_projects = async () => {
 
-        await fetch("https://localhost:3300/project")
+        await fetch("http://localhost:3300/event")
             .then((response) => response.json())
             .then((json) => {
                 // console.log(json[0].name);
@@ -32,38 +32,20 @@ function Feeds() {
     }, []);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
         <div className='Feeds'>
             {
-
                 project.map(e => (
 
                     <div className='Feedss'>
                         <div className="top">
                             <div className='head'>
-                                <h2>{e.name}</h2>
-                                <h4>Reputation required : 3</h4>
+                                <h2>{e.title}</h2>
+                                <h4>Reputation required : {e.reputation_required}</h4>
                             </div>
 
                             <div class="avatars">
-                                {e.team.map(j => (
-                                    <span class="avatar">
-                                        <img src="https://www.fillmurray.com/50/50" width="45" height="45" alt={j} />
-                                    </span>
-                                ))}
+                                goons
                             </div>
                         </div>
 
@@ -79,7 +61,7 @@ function Feeds() {
                             </div>
 
                             <div className='tags'>
-                                {e.category.map(j => (
+                                {e.body.tags.map(j => (
                                     <p>{j}</p>
                                 ))}
 
@@ -90,10 +72,10 @@ function Feeds() {
 
                         <div className="bottom">
                             <div className="bottom__left">
-                                <h4>bids : 10</h4>
+                                <h4>bids : {e.bids}</h4>
                                 <div className="location">
                                     <GrLocation />
-                                    India
+                                    {e.location}
                                 </div>
                             </div>
 
@@ -101,6 +83,7 @@ function Feeds() {
 
 
                                 <div className="likeicons">
+                                    Like:: {e.likes}
                                     <AiFillLike className='icons' />
                                     <AiFillDislike className='icons' />
                                 </div>

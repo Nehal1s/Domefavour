@@ -26,7 +26,7 @@ db.once('open', ()=>{ console.log('Project Connected')})
 router.get('/', async (req, res)=>{
     console.log("sadsad");
     try{
-        const projects_defaults = await Project.find()
+        const projects_defaults = await Project.find().limit(20)
 
         //todo:: this for removing project in one go { do not use } 
         // let i = 0;

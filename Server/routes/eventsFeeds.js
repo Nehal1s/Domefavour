@@ -40,7 +40,8 @@ router.get('/personal/:id', async (req, res)=>{
 //todo -> { getting all}
 router.get('/', async (req, res)=>{
     try {
-        let events = await Events.find().limit(90);
+        let events = await Events.find().limit(20)
+       
         res.status(200).json(events);
 
     } catch (err) {

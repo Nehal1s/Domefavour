@@ -24,13 +24,17 @@ db.once('open', ()=>{ console.log('Connected to database in auths');
 async function god(params) {
     console.log("we'll successed");
     const projects = await Project.find().limit(200)
-    for (let i = 4; i<200;i++){
+    for (let i = 10; i<200;i++){
         // let id = uuid().split('-')[0];
         console.log(projects[i]);
         const dev = new Devs({
             _id: uuid().split('-')[0],
             title: faker.company.companyName(),
             owner: projects[i].owner,
+            reputation_required: Math.floor((Math.random() * 5) + 1),
+            bids: Math.floor((Math.random() * 10) + 1),
+            location: faker.address.country(),
+            likes: Math.floor((Math.random() * 1010) + 1),
             body: {
                 description: faker.lorem.slug(),
                 tags: projects[i].category,
