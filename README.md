@@ -97,6 +97,10 @@ An in-depth overview of the API methods is available in the documentation. The A
   "_id" : "Mongo_id",
   "title" : "title of Event or post",
   "owner" : "Owner's  _id",
+  "reputation_required": "reputation required to join",
+  "bids": "Total no. of requests",
+  "location": "Obvious",
+  "likes": "likeness of project"
   "body" :{
           "description" : "Description of post",
           "tags" : "tagsof technology involved",
