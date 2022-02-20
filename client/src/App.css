@@ -1,0 +1,11 @@
+.App{
+    background: #16161a;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+
+}
+
+.navbar{
+    margin-right: 14%;
+}

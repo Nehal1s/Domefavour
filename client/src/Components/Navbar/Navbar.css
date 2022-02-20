@@ -1,0 +1,36 @@
+.Navbar{
+    flex: 2;
+    position: fixed;
+    margin: 0px 5px 0px 0px;
+    padding: 10px 5px 0px 5px;
+    text-align: center;
+
+  height: 100%;
+    background: #16161a;
+    color: white;
+}
+
+
+.nav_items{
+    padding: 10px;
+    color: #eff2ef;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.nav_items:hover{
+    border-color: #bc13fe;
+    color: #bc13fe;
+    text-shadow: 0px 0px 32px #bc13fe;
+    box-shadow: -1px -1px 1px #7a57d121, -1px 1px 1px #7a57d121, 1px -1px 1px #7a57d121, 1px 1px 1px #7a57d121, 0 0 3px #7a57d121, 0 0 10px #7a57d121, 0 0 20px #7a57d121, 0 0 30px #7a57d121, 0 0 40px #7a57d121, 0 0 50px #7a57d121, 0 0 70px #7a57d121, 0 0 100px #7a57d121, 0 0 200px #7a57d121;
+    border-radius: 999px;
+    
+}
+
+.name{
+    padding: 20px;
+    margin: 10px;
+    background: #7a57d121;
+    border-radius: 20px;
+}

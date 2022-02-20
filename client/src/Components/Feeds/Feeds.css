@@ -1,8 +1,20 @@
 .Feedss{
-    background-color: rgb(208, 223, 228);
+    /* background-color: rgb(208, 223, 228); */
     margin: 30px 0px 15px 0px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 10px; 
+    background: #7a57d121;
+    
+    
+}
+
+
+
+.Feedss:hover{
+    border-color: #bc13fe;
+    box-shadow: -1px -1px 1px #7a57d121, -1px 1px 1px #7a57d121, 1px -1px 1px #7a57d121, 1px 1px 1px #7a57d121, 0 0 3px #7a57d121, 0 0 10px #7a57d121, 0 0 20px #7a57d121, 0 0 30px #7a57d121, 0 0 40px #7a57d121, 0 0 50px #7a57d121, 0 0 70px #7a57d121, 0 0 100px #7a57d121, 0 0 200px #7a57d121;
+    border: 1px solid #7f5af0;
+  
 }
 
 .top{
@@ -20,16 +32,13 @@
 
 .icons{
     font-size: xx-large;
-    background-color: white;
-    color: rgb(9, 186, 245);
-    border-radius: 999px;
+    color:#bc13fe;
     cursor: pointer;
-    margin: 5px;
     padding :5px;
 }
 
 .icons:hover{
-    background-color: rgb(9, 186, 245);
+    background-color:#7a57d121;
     color: white;
 }
 
@@ -54,13 +63,22 @@
 .location{
     display: flex;
     margin: 10px 0px 0px 0px;
+    align-items: center;
+    color: #7f5af0;
 }
 
 .about{
     margin: 20px 0px 20px 0px;
 }
 
-
+.likeicons{
+    background-color: #7a57d121;
+    padding: 10px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    
+}
 
 /* Avatar images group of people */
 

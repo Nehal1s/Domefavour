@@ -1,7 +1,8 @@
 import React from 'react';
 import "../css/Home.css"
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch} from 'react-icons/fa';
 import Feeds from './Feeds/Feeds';
+import Home_profile from './Home_profile/Home_profile';
 
 function Home() {
 
@@ -9,10 +10,7 @@ function Home() {
 
         <div className='Home'>
 
-
-            <div className="left__feeds">
-                <h3 className="name">DO ME FAVOUR</h3>
-            </div>
+           
 
             <div className="middle__feeds">
                 <h3>Welcome Shiv, You've got x notifications</h3>
@@ -30,11 +28,7 @@ function Home() {
             </div>
 
             <div className="right__feeds">
-                <img src="https://i5.walmartimages.com/asr/d30a610d-9db8-41f7-bd03-0d9072a1a1b7_1.9a252d2ef16ff913bcb4926254106fb4.jpeg" alt='Avatar' width='100px' height='100px'></img>
-                <h3>Shivansh Sharma</h3>
-                <p>MERN developer | Genius Guy | Smartest Guy in the room | Fuck you nehal</p>
-                <p>Reputation : 100</p>
-
+                <Home_profile/>
             </div>
         </div>
 

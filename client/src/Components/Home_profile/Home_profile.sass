@@ -1,0 +1,120 @@
+//shadow colors
+$shadow-color: #7a57d156
+$shadow-color-light: #7a57d121
+// for bigger and wider shadows increase the opacity of above colors
+
+
+
+
+//colors
+$neon-purple: #bc13fe
+    
+
+
+
+
+
+    
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    font-family: sans-serif
+
+.container
+    width: 100vw
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    background: #16161a
+    color: #fffffe
+    overflow: auto
+    .profile_box
+
+        width: 350px
+        height: 300px
+        .space
+            width: 23px
+            height:  100px
+        .inner-profile
+            display: flex
+            justify-content: center
+            align-items: center
+            text-align: center
+            background: $shadow-color-light
+            border-radius: 0.6rem
+            position: relative
+            height: 200px
+            border: 1px solid transparent
+            transition: 0.2s ease-in 
+            &:hover
+                border-color: $neon-purple
+                box-shadow: -1px -1px 1px $shadow-color-light, -1px 1px 1px $shadow-color-light, 1px -1px 1px $shadow-color-light, 1px 1px 1px $shadow-color-light,0 0 3px $shadow-color-light, 0 0 10px $shadow-color-light, 0 0 20px $shadow-color-light,0 0 30px $shadow-color-light, 0 0 40px $shadow-color-light, 0 0 50px $shadow-color-light, 0 0 70px $shadow-color-light, 0 0 100px $shadow-color-light, 0 0 200px $shadow-color-light
+            .img
+                .mai
+                    padding: 0.6rem
+                    border-bottom: 1px solid #7f5af060
+
+            img
+                width: 80px
+                border-radius: 50%
+                border: 1px solid #7f5af0
+                box-shadow: 0 1px 1px #7f5af01f, 0 2px 2px #7f5af01f, 0 4px 4px #7f5af01f, 0 8px 8px #7f5af01f,0 16px 16px #7f5af01f
+
+            .linear
+                margin-bottom: 2.7rem
+                display: inline-flex
+                .linear_obj
+                    margin: 1rem
+                    h4
+                        font-size: 12px
+                        padding-block-end: 0.9rem
+        .inner-team
+            margin-top: 1.3rem
+
+            .heading-team
+                font-size: 20px
+                color: $neon-purple
+                padding: 0.5rem
+                text-shadow: 0px 0px 32px $neon-purple
+                margin-left: 20px
+
+            .mate
+                display: inline-flex
+                justify-content: space-around
+                align-items: center
+                width: 100%
+                padding: 0.5rem
+                margin-block: 0.2rem
+                background: $shadow-color-light
+                border: 2px solid transparent
+                border-radius: 0.6rem
+                transition: 0.3s ease-in
+                &:hover
+                    border-color: $neon-purple
+                    box-shadow: -1px -1px 1px $shadow-color-light, -1px 1px 1px $shadow-color-light, 1px -1px 1px $shadow-color-light, 1px 1px 1px $shadow-color-light,0 0 3px $shadow-color-light, 0 0 10px $shadow-color-light, 0 0 20px $shadow-color-light,0 0 30px $shadow-color-light, 0 0 40px $shadow-color-light, 0 0 50px $shadow-color-light, 0 0 70px $shadow-color-light, 0 0 100px $shadow-color-light, 0 0 200px $shadow-color-light
+
+                img
+                    width: 50px
+                    height: 50px
+                    overflow: hidden
+                    position: cent
+                    border-radius: 50%
+                    border: 1px solid  #bc13fe
+                .middle_info
+                    text-align: center
+                    margin-inline: 0.9rem 
+                    h3
+                        font-size: 15px
+                    h4
+                        font-size: 12px
+                        color: #597ecf
+                .repu
+                    text-align: center
+                    h4
+                        font-size: 14px
+                    h3
+                        font-size: 16px
+                        color: #cacc56
+                        

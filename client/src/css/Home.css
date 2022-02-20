@@ -8,6 +8,7 @@
 
 .Home{
     display: flex;
+    width: 100%;
 }
 
 .search_bar{
@@ -30,19 +31,39 @@
     justify-content: center;
     align-items: center;
 }
-
-
-
+/* 
+.name{
+    padding: 20px;
+    margin: 10px;
+    background: #7a57d121;
+    border-radius: 20px;
+} */
+/* 
 .left__feeds{
     flex: 2;
     margin: 10px 5px 0px 5px;
     padding: 0px 5px 0px 5px;
-    background-color: rgb(208, 223, 228);
+    text-align: center;
     border-radius: 20px;
 }
 
+.nav_items{
+    padding: 10px;
+    color: #eff2ef;
+    justify-content: center;
+    text-align: center;
+}
+
+.nav_items:hover{
+    border-color: #bc13fe;
+    box-shadow: -1px -1px 1px #7a57d121, -1px 1px 1px #7a57d121, 1px -1px 1px #7a57d121, 1px 1px 1px #7a57d121, 0 0 3px #7a57d121, 0 0 10px #7a57d121, 0 0 20px #7a57d121, 0 0 30px #7a57d121, 0 0 40px #7a57d121, 0 0 50px #7a57d121, 0 0 70px #7a57d121, 0 0 100px #7a57d121, 0 0 200px #7a57d121;
+    border-radius: 999px;
+    
+} */
+
+
 .middle__feeds{
-    flex: 6;
+    flex: 8;
     margin: 50px 10px 0px 10px;
 
 }
@@ -50,17 +71,16 @@
 .right__feeds{
     flex: 2;
     margin: 50px 5px 0px 5px;
-    padding: 0px 5px 0px 5px;
     text-align: center;
-    background-color: rgb(208, 223, 228);
     border-radius: 20px;
+    height: 100%;
 }
 
-.right__feeds>img{
+/* .right__feeds>img{
     border-radius: 50%;
     background-color: #eff2ef;
     border: 2px solid black;
 
 
 
-}
+} */

@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { AiFillLike } from 'react-icons/ai';
-import { AiFillDislike } from 'react-icons/ai';
+import {FcLike} from 'react-icons/fc';
 import { GrLocation } from 'react-icons/gr';
 import "./Feeds.css"
-
-
-
-
-
 
 
 function Feeds() {
@@ -45,7 +39,9 @@ function Feeds() {
                             </div>
 
                             <div class="avatars">
-                                goons
+                                <img src="https://www.fillmurray.com/50/50" width="45" height="45" alt='s' />
+                                <img src="https://www.fillmurray.com/50/50" width="45" height="45" alt='s' />
+                                <img src="https://www.fillmurray.com/50/50" width="45" height="45" alt='s' />
                             </div>
                         </div>
 
@@ -74,8 +70,8 @@ function Feeds() {
                             <div className="bottom__left">
                                 <h4>bids : {e.bids}</h4>
                                 <div className="location">
-                                    <GrLocation />
-                                    {e.location}
+                                    <GrLocation style={{"fontSize":"xx-large", color:"#7f5af0"}} />
+                                    <b>{e.location}</b>
                                 </div>
                             </div>
 
@@ -83,9 +79,9 @@ function Feeds() {
 
 
                                 <div className="likeicons">
-                                    Like:: {e.likes}
-                                    <AiFillLike className='icons' />
-                                    <AiFillDislike className='icons' />
+                                    <FcLike className='icons' />
+                                    <h3>{e.likes}</h3>
+                                    {/* <AiFillDislike className='icons' /> */}
                                 </div>
 
                             </div>
