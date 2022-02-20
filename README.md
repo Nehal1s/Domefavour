@@ -102,7 +102,7 @@ An in-depth overview of the API methods is available in the documentation. The A
   "location": "Obvious",
   "likes": "likeness of project"
   "body" :{
-          "description" : "Description of post",
+          "description" : "Description of post or whatever you like. eg point tables and stuff",
           "tags" : "tagsof technology involved",
           "src" : "image link"
           },
