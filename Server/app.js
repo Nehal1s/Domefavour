@@ -7,7 +7,7 @@ const projectsRoutes = require('./routes/projectsRoutes');
 const eventFeeds = require('./routes/eventsFeeds')
 const app = express();
 require('dotenv').config()
-const PORT = process.env.PORT || 3300;
+const PORT = process.env.PORT || 80;
 
 
 
